@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="rurple.css" type="text/css" />
+
+<title>명령문 요약</title>
+</head>
+<body>
+<h2 class="title">러플(RUR-PLE), 파이썬 배우기: 러플로 아이들이 놀기!</h2>
+<h6>André Roberge, © 2005-2010</h6>
+<h3 class="section">명령문 요약</h3>
+<p>리보그 움직임</p>
+
+<pre>
+move()
+turn_left()
+pick_beeper()
+put_beeper()
+turn_off()
+</pre>
+
+<p>시험(테스트):</p>
+
+<pre>
+front_is_clear()
+left_is_clear()
+right_is_clear()
+facing_north()
+carries_beepers()
+on_beeper() <span class="comment"># 상응하는 명령어:</span> next_to_a_beeper()
+</pre>
+
+<p> 특별 내장 함수:</p>
+
+<pre>
+repeat(function, number_of_times)
+<span class="comment"># 다음 파이썬 명령어에 상응</span>
+<span class="keyword">for</span> number <span class="keyword">in</span> range(number_of_times):
+    function()
+</pre>
+
+<p>개체 지향 프로그래밍(Object-oriented programming):</p>
+
+<pre>
+Reeborg = UsedRobot()
+Reeborg.move()
+Reeborg.turn_left()
+Reeborg.pick_beeper()
+Reeborg.put_beeper()
+Reeborg.front_is_clear()
+Reeborg.left_is_clear()
+Reeborg.right_is_clear()
+Reeborg.facing_north()
+Reeborg.carries_beepers()
+Reeborg.on_beeper() <span class="comment"># equivalent to:</span> Reeborg.next_to_a_beeper()
+</pre>
+
+<p>고급 옵션(Advanced options):</p>
+
+<pre>
+set_trace_style(style=1, colour=<span class="string">'sea green'</span>)
+<span class="comment"># wxPython이 인식하는 임의의 색깔이름을 사용할 수있다.</span>
+<span class="comment"># 스타일(style)은 [1, 2, 3, 4, 5] 중 하나.</span>
+set_delay(time)
+<span class="comment"># 0 &lt; time &lt; 10 (in seconds)</span>
+
+Reeborg = UsedRobot(avenues=1, streets=1, orient_key = <span class="string">'E'</span>,
+                 beepers=0, name=<span class="string">'robot'</span>, colour=<span class="string">'grey'</span>)
+<span class="comment"># orient_key 는 다음 중 하나. <span class="string">'E'</span> or <span class="string">'e'</span>, <span class="string">'W'</span> or <span class="string">'w'</span>, <span class="string">'S'</span> or <span class="string">'s'</span>, <span class="string">'N'</span> or <span class="string">'n'</span>.</span>
+
+<span class="comment"># 가능한 <b>로봇</b> 색깔: <span class="string">'yellow'</span>, 
+# <span class="string">'blue'</span>, <span class="string">'light blue'</span>, <span class="string">'purple'</span> and <span class="string">'green'</span>.  
+# 다른 색을 사용하면 디폴트로 (<span class="string">'회색'</span>)이 적용됨.</span>
+
+<span class="comment"># 일련 번호가 로봇의 "이름"
+# 나타나서 프로그램을 실행하는 동안 
+# 러플은 유일한 이름을 가지게 된다.</span>
+
+Reeborg.set_trace_style(style=1, colour=<span class="string">'sea green'</span>) 
+Reeborg.set_delay(time)
+</pre>
+
+<p>새롭고 개량된 로봇!</p>
+
+<pre>
+Guido = RefurbishedRobot()  <span class="comment"># UsedRobot에서 상속</span>
+
+<span class="comment"># 추가 메쏘드:</span>
+Guido.turn_right()
+Guido.left_clear()
+Guido.right_clear()
+Guido.facing_east()
+Guido.facing_south()
+Guido.facing_west()
+Guido.roll_dice(n=6) <span class="comment"># 1 부터 n 사이의 임의의 정수.</span>
+</pre>
+
+<div class="lessons_nav">
+<a href="index.htm"><img alt="home" src=
+"./images/home.png" /></a>
+</div>
+</body>
+</html>

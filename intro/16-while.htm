@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+
+<title>while 문</title>
+</head>
+<body>
+<h2 class="title">16. while 문</h2>
+
+<p>어떤 조건이 만족될 때까지 명령문을 반복하기 원할 때, 파이썬에서 좀더 간단한 방식으로 프로그램을 작성할 수 있는 새로운 키워드(while)를 사용할 수 있습니다. 앞에서 살펴본 예제를 의사 코드를 사용하여 이것이 어떤 모습인지 살펴봅시다.</p>
+
+<pre>
+While not on beeper,
+... keep moving;
+otherwise,
+... stop.
+</pre>
+
+<p>이것이 앞에서처럼 같은 생각을 표현한다는데 동의하실 것입니다. 파이썬 코드를 사용해서, 여기 어떻게 프로그램을 작성하는지 살펴봅시다.</p>
+
+<pre>
+<span class="keyword">while not</span> on_beeper():
+    move()
+ 
+turn_off()           
+</pre>
+
+<p>반복을 할 필요가 전혀 없습니다. <b>시도해 보세요!</b></p>
+
+<!--=====================================================-->
+<hr class="line" />
+
+<h3 class="try">여러분 차례</h3>
+
+<p>while과 not 키워드를 사용해서 장애물 넘기 프로그램을 다시 작성하세요. 반복문의 임의의 숫자를 사용할 필요가 없습니다. 다른 말로, 프로그램의 핵심부분은 다음과 같을 것입니다.</p>
+
+<pre>
+<span class="keyword">while not</span> on_beeper():
+    move_or_jump()
+ 
+turn_off()           
+</pre>
+
+<p>정상적으로 작동하는지 확인해보세요!</p>
+
+<h3 class="suggested">김을 매고 씨 뿌리는 시기</h3>
+
+<p>다시 봄이 돌아왔습니다. 리보그의 아버지는 가을 추수를 위해서 정원에 씨를 뿌렸습니다. 지난번과 마찬가지로 두 개의 씨가 발아한 곳이 있는 반면, 전혀 씨가 발아하지 않은 곳도 있습니다. 전형적인 상황은 아래 보여지고 있습니다. (월드파일: harvest4.wld)</p>
+
+<p><img alt="weeding" src="../images/intro/harvest4.png" /></p>
+
+<p>리보그가 정원에서 김을 매는 것을 도와주세요. 두 개의 당근(비퍼)이 있는 곳이 있거나, 당근이 하나도 없는 곳이 있으면 안됩니다.</p>
+
+<p>여기 while 키워드를 사용한 프로그램 코드의 일부가 제안으로 있습니다.</p>
+
+<pre>
+<span class="comment"># 문제에 관련 어휘를 연결시키기</span>
+next_to_a_carrot = on_beeper
+plant_carrot = put_beeper
+pick_carrot = pick_beeper
+
+<span class="keyword">def</span> one_carrot_only():
+    <span class="keyword">while</span> next_to_a_carrot():
+        pick_carrot()      <span class="comment"># 모두를 뽑아냅니다</span>            
+    plant_carrot()         <span class="comment"># 하나만 다시 파종합니다</span>
+</pre>
+
+<p>여기 프로그램 코드의 일부분은 앞의 것보다 약간 짧습니다. (6줄 대신에 def 함수 정의 명령문에 3줄이 있습니다.) 더욱이, 한 장소에 2개 이상의 씨앗이 발아한 경우에도 이 프로그램은 작동이 됩니다. 시도해 보세요~ </p>
+
+<div class="lessons_nav">
+<a href="15-not.htm"><img alt="previous" src=
+"../images/previous.png" /> 참이 아닙니까? </a> - 
+<a href="../lessons_toc.htm"><img alt=
+"home" src="../images/home.png" /></a> - <a href="17-amazing1.htm">놀라운 Part 1 <img alt="next" src="../images/next.png" /></a>
+</div>
+</body>
+</html>

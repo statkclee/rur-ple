@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+
+<title>If, else, if, else, ....</title>
+</head>
+<body>
+<h2 class="title">14. <span class="pykeyword">if, else, <small>if,
+else,</small></span>...</h2>
+
+<p>앞선 장애물 연습 프로그램은 if/else 문을 다른 if/else 문 내부에 작성하도록 했습니다. 왜냐하면 리보그가 3가지 선택(끝내거나, 앞으로 움직이거나, 장애물을 넘든가)을 해야 하기 때문입니다. 이런 상황은 점점 더 코드를 들여 써야만 한다는 것을 알아차리셨을 것입니다. 리보그가 10개의 상호 배타적인 선택을 한다면 무슨 일이 생길지 상상해 보세요. 프로그램 코드의 가독성은 떨어질 것입니다. 이런 상황을 타계하고자, 파이썬을 만든 Guido Van Rossum은 if절에 else 문과 조합을 표현하는 키워드, elif를 만들었습니다. elif는 여러분이 생각하듯이 else if의 축약어 입니다. 이 새로운 키워드로, 프로그램 코드는 다음과 같이 다시 작성될 수 있습니다.</p>
+
+<pre>
+<span class="keyword">def</span> move_jump_or_finish():
+    <span class="keyword">if</span> on_beeper():
+        turn_off()
+    <span class="keyword">elif</span> front_is_clear():
+        move()
+    <span class="keyword">else</span>:
+        jump_one_hurdle()
+</pre>
+
+<p>프로그램 코드가 동일한 방식으로 들여쓰기가 되어, 3가지 가능한 경우의 수가 있다는 것을 이제 좀더 잘 볼 수 있습니다. else 조건은 앞의 조건이 모두 거짓인 경우에만 수행되어, else와 관계된 다른 조건은 없습니다. 3개 이상의 선택지를 필요하다면, 다른 elif문을 추가하기만 하면 됩니다.</p>
+
+<pre>
+<span class="keyword">def</span> move_jump_or_finish():
+    <span class="keyword">if</span> on_beeper():
+        turn_off()
+    <span class="keyword">elif</span> front_is_clear():
+        move()
+    <span class="keyword">elif</span> right_is_clear(): <span class=
+"comment"># always false</span>
+        <span class="keyword">pass</span> 
+    <span class="keyword">else</span>:
+        jump_one_hurdle()
+</pre>
+
+<p>리보그가 바닥의 벽을 따라 움직여서, right_is_clear() 명령문은 항상 거짓이여서, pass 명령문(파이썬에서 아무것도 하지 않는 것과 동일)은 항상 무시됩니다. Left_is_clear() 명령문이 대신 사용한다면, 리보그는 첫 번째 장애물에 도달하자마자 영원히 움직이지 못하게 될 것입니다. <b>여러분이 직접 해보세요!</b></p>
+
+<h3 class="try">여러분 차례</h3>
+
+<p>If, elif, else 키워드를 사용하여 앞 두 장애물 경주 코스 예제를 수행하는 프로그램과 다음 hurdles3.wld 파일의 경주 코스 예제도 수행하는 프로그램을 작성해 보세요.</p>
+
+<img alt="hurdles start" src="../images/intro/hurdles3_start.png" />
+
+<div class="lessons_nav">
+<a href="13-else.htm"><img alt="previous" src=
+"../images/previous.png" /> 제 말을 들으세요… 그렇지 않다면 </a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../images/home.png" /></a> - <a href=
+"15-not.htm">참이 아닙니까? <img alt="next" src=
+"../images/next.png" /></a>
+</div>
+</body>
+</html>

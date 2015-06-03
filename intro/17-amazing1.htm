@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+
+<title>놀라운 Part 1 </title>
+</head>
+<body>
+<a name="amazing" id="amazing"></a>
+<h2 class="title">17. 놀라운 Part 1 </h2>
+
+<p>여기 부분(Multi-part) 수업에서는 증가하는 복잡성을 가진 문제를 해결하는 완벽한 프로그램을 작성할 것입니다.</p>
+
+<!--===================================================-->
+<hr class="line" />
+
+<h3 class="section">놀라운 솔루션: 첫 걸음</h3>
+
+<p>간단한 프로그램으로 출발합시다. 리보그가 월드 주위를 한 바퀴를 도는데, 중간에 어떠한 장애물도 없다고 가정합시다. front_is_clear() 테스트를 소개했을 때, 전에 동일한 프로그램을 작성했습니다. 여기 출발점에서 비퍼 하나를 가지고 다니는 리버그 프로그램의 대략적인 개요가 있습니다.</p>
+
+<pre>
+1. 출발점에서 비퍼를 내려 놓습니다
+2. 벽을 마주칠 때까지 계속 전진합니다.
+3. 벽에 마주칠 때 왼쪽으로 회전을 합니다.
+4. 내려놓은 비터를 발견할 때까지 II, III번 단계를 반복합니다.
+5. 비퍼를 발견하면 리보그가 꺼집니다.
+</pre>
+
+<p>중요한 프로그램의 단계는 IV로 반복 명령문이 있습니다. 반복 명령문은 아래와 같이 작성됩니다.</p>
+
+<pre>
+<span class="keyword">while not</span> on_beeper():
+</pre>
+
+<p>그 다음으로 중요한 프로그램의 단계는 II, III가 됩니다. 글로 작성한 코드를 온전한 프로그램 코드로 전환하여 봅시다.</p>
+
+<pre>
+put_beeper()
+<span class="keyword">while not</span> on_beeper():
+    <span class="keyword">if</span> front_is_clear():
+        move()
+    <span class="keyword">else</span>:
+        turn_left()
+
+turn_off()
+</pre>
+
+<p>만약 출발 위치가 아래 보여진 것과 같이 되어 있다면, 시간을 가지고 위 프로그램이 리보그에게 무슨 일을 명령하는지 생각해 봅시다. </p>
+
+<p><img alt="around the world: start" src=
+"../images/intro/around1start.png" /></p>
+
+<p>아래의 경우는 원하는 결과를 얻지 못합니다. 왜 그런지 설명할 수 있나요? 만약 설명이 되지 않는다면, 뒤로 돌아가서, 다시 생각해 보세요.</p>
+
+<p><img alt="around the world: start" src=
+"../images/intro/around1end.png" /></p>
+
+<div class="lessons_nav">
+<a href="16-while.htm"><img alt="previous" src=
+"../images/previous.png" />while문</a> - 
+<a href="../lessons_toc.htm"><img alt=
+"home" src="../images/home.png" /></a> - <a href="18-amazing2.htm">놀라운 Part 2 <img alt="next" src="../images/next.png" /></a>
+</div>
+</body>
+</html>

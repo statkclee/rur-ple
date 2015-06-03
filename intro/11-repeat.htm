@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+
+<title>다시 반복 피하기</title>
+</head>
+<body>
+<h2 class="title">11. 다시 반복 피하기</h2>
+
+<p>앞에서 본 규칙 3은 너무 중요해서 여러분이 잘 기억하도록 다시 반복하고 싶습니다.</p>
+
+<dl>
+<dt><b>규칙 # 3</b></dt>
+<dd>프로그램을 작성할 때, 자신을 반복하지 마세요.<br />
+다시 말씀드립니다. <b>자신을 반복하지 마세요.</b></dd>
+</dl>
+
+<!--================================================-->
+<hr class="line" />
+
+<a name="Repeat" id="Repeat"></a>
+<h3 class="section">반복!</h3>
+
+<p>신문 배달 연습문제의 마지막 해결 프로그램에 여전히 반복이 남아 있습니다. 
+예를 들어 turn_left() 명령문이 turn_right() 정의 명령문에 3번 나타납니다. 동일하게, climb_up_one_stair()는 climb_up_one_stairs() 정의 명령문에 4번 나타납니다. 
+자신을 반복하지 말자는 규칙에 반하는 것처럼 보입니다. 반복을 피하는 한가지 방법은 리보그가 특별한 명령문을 통해서 명령문을 반복하는 것입니다.
+</p>
+
+<p>리보그가 명령문을 반복하도록 repeat() 명령문을 아래와 같이 사용합니다.<br />
+<tt>repeat((명령문 이름, 반복 횟수)</tt></p>
+
+<p>명령문의 이름 끝에 괄호, ‘()’, 가 없다는 것을 주목하세요. 예를 들어 오른쪽으로 회전하기를 다음과 같이 작성할 수 있습니다.</p>
+
+<pre>
+<span class="keyword">def</span> turn_right():
+    repeat(turn_left, 3)
+</pre>
+
+<h3 class="try">여러분 차례</h3>
+
+<p>repeat 명령문을 사용해서 신문 배달 프로그램을 짧게 작성할 수 있습니다. 새로운 프로그램이 기대한 대로 잘 작성하는지 확인하세요.</p>
+
+<!--============================================-->
+<hr class="line" />
+
+<a name="Challenges2" id="Challenges2"></a>
+<h3 class="suggested">도전</h3>
+
+<p>연습문제를 몇 개 더 작성하고 이번 학습을 마무리 합니다. 이번 학습의 주 학습 내용을 존중해서, 첫번째와 두번째 연습문제는 비퍼 학습의 끝에 수행했던 연습문제를 다시 작성하는 것입니다. 이 문제를 풀기 위해서, 이번 학습 및 이전 학습에서 배운 새로운 개념 [def, repeat()]을 사용해서 프로그램을 작성해야 합니다.</p>
+
+<h3 class="suggested">장애물 넘기</h3>
+
+<p>리보그가 장애물 넘기 경주에 참가합니다. 아래 보여진 경로를 따라 결승선에 리보그가 도착하도록 프로그램을 작성하세요. 월드 파일은 hurdles1.wld입니다.</p>
+
+<div class="pcenter"><img alt="hurdles start" src=
+"../images/intro/hurdles1_start.png" /></div>
+<div class="pcenter"><img alt="lead to" src="../images/lead_to.png" /> <img alt=
+"hurdles end" src="../images/intro/hurdles1_end.png" /></div>
+
+<p>다음 경로에 상응하는 새로운 명령어 jump_hurdle()을 정의하여 유용해 보입니다.</p>
+
+<div class="pcenter"><img alt="jump one hurdle start" src=
+"../images/intro/jump1start.png" /> <img alt="lead to" src=
+"../images/lead_to.png" /> <img alt="jump one hurdle end" src=
+"../images/intro/jump1end.png" /></div>
+
+<p>새로운 프로그램 해결책을 이전의 것과 비교하여 보세요. [프로그램을 저장했습니까?, 저장했지요?]</p>
+
+<!--=====================================================-->
+<hr class="line" />
+
+<h3 class="suggested">수확 시기</h3>
+
+<p>수확의 계절입니다. 정원의 모든 당근(비퍼로 표현)을 리보그가 수확합니다. 월드 파일은 harvest1.wld입니다.</p>
+
+<p><img alt="harvest start" src="../images/intro/harvest1.png" /></p>
+
+<p>여러분이 작성한 프로그램은 다음 명령문 함수를 정의해야 합니다.</p>
+
+<pre>
+move_to_first_row()
+harvest_two_rows()
+move_right_to_next_row()
+</pre>
+
+<p>이 명령문 함수를 좀더 분해하길 원할지도 모릅니다. 예를 들어 여러분은 다음과 같이 작성할 수도 있습니다.</p>
+
+<pre>
+<span class="keyword">def</span> harvest_two_rows():
+    harvest_one_row()
+    move_left_to_next_row()
+    harvest_one_row()
+</pre>
+
+<p>하지만, 두개의 필수 명령문을 분해하는 자신만의 방식을 선택할 수도 있습니다. 두 필수 명령문을 정의하고, 프로그램은 다음과 같이 작성될 수 있습니다.</p>
+
+<pre>
+move_to_first_row()
+harvest_two_rows()
+move_right_to_next_row()
+harvest_two_rows()
+move_right_to_next_row()
+harvest_two_rows()
+turn_off()
+</pre>
+
+<p>다시, 수확 문제에서 앞서 작성한 프로그램과 새로운 프로그램을 비교하여 보세요.</p>
+
+<h3 class="suggested">다시 수확 시기</h3>
+
+<p>다시, 수확의 계절입니다. 하지만, 정원의  행이 대각선으로 정렬되어 있습니다. 리보그로 하여금 아래 정원의 모든 당근(비퍼로 표현)을 수확하도록 만드세요. 월드 파일은 harvest4.wld입니다.</p>
+
+<p><img alt="harvest start" src="../images/intro/harvest2.png" /></p>
+
+<p>앞선 예제처럼, 여러분의 프로그램은 다음 명령문을 정의해야 합니다.</p>
+
+<pre>
+move_to_first_row()
+harvest_two_rows()
+move_right_to_next_row()
+</pre>
+
+<p>이 명령문들은 앞서와 같은 방식으로 정의되지 않을 것입니다. 하지만, 이 명령문 함수들을 정의하면, 앞선 예제 프로그램과 같은 방식으로 여러분의 프로그램을 작성해야 합니다.</p>
+
+<pre>
+move_to_first_row()
+harvest_two_rows()
+move_right_to_next_row()
+harvest_two_rows()
+move_right_to_next_row()
+harvest_two_rows()
+turn_off()
+</pre>
+
+<p>벽 가장자리에 부딪히지 않도록 주의하세요. 수확을 어디서 시작해서, 어느 방향으로 수확을 할 것인지를 생각해 보세요. 종이 위에 스케치를 하여 경로를 그려보는 것이 도움이 될 수 있습니다.</p>
+
+<div class="lessons_nav">
+<a href="10-def.htm"><img alt="previous" src=
+"../images/previous.png" /> 확실히 반복 피하기 </a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../images/home.png" /></a> - <a href=
+"12-if.htm">리보그 스스로 결정을 할 수 있다면 ... <img alt="next" src=
+"../images/next.png" /></a>
+</div>
+</body>
+</html>

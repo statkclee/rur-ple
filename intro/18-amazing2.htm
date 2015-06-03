@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+
+<title>놀라운 Part 2 </title>
+</head>
+<body>
+<h2 class="title">18. 놀라운 Part 2 </h2>
+
+<p>Part 1의 마지막에 우리가 직면한 문제의 원인이 여기 있습니다. 비퍼를 내려놓습니다. 앞으로 이동하기 전에 비퍼가 옆에 있지 않은지를 확인하는 테스트를 합니다. while 반복 명령문에 들어갈 기회가 전혀 없습니다. 반복 명령문을 실행하기 전에 move() 명령문을 아래와 같이 추가하여 수정합니다.</p>
+
+<pre>
+put_beeper()
+move()
+<span class="keyword">while not</span> on_beeper():
+    <span class="keyword">if</span> front_is_clear():
+        move()
+    <span class="keyword">else</span>:
+        turn_left()
+
+turn_off()
+</pre>
+
+<p><b>성공! 시도해 보세요.</b></p>
+
+<!--================================================-->
+<hr class="line" />
+
+<h3 class="section">2.  그다지 간단하지 않은 월드</h3>
+
+<p>작성한 프로그램을 조금 더 복잡한 월드에서 실행해 봅시다. 아래 월드는 쉽게 다시 만들 수 있는 월드입니다.</p>
+
+<p><img alt="around the world: start" src=
+"../images/intro/around2start.png" /></p>
+
+<p>결과는 우리가 원하는 것은 정확히 아닙니다. 리보그가 지름길을 택해서, 벽을 따라 움직이지는 않았습니다.</p>
+
+<p><img alt="around the world: end" src=
+"../images/intro/around2end.png" /></p>
+
+<p>문제는 리보그가 벽을 따라 움직일 때 단지 앞으로 전진만 하거나, 왼쪽으로만 회전하는 것을 가정했습니다. 리보그가 오른쪽으로 회전하는 상황에 대해서는 고려를 전혀 하지 않았습니다. 리보그에게 필요한 것은 첫째 오른쪽에 여전히 벽이 있는지를 확인하는 것입니다. 만약 벽이 없다면, 리보그가 오른쪽으로 회전을 해야만 합니다. 오른쪽으로 회전하는 수정한 버전의 프로그램이 있습니다.</p>
+
+<pre>
+<span class="keyword">def</span> turn_right():
+    repeat(turn_left, 3)
+
+put_beeper()
+move()
+<span class="keyword">while not</span> on_beeper():
+    <span class="keyword">if</span> right_is_clear():
+        turn_right()
+    <span class="keyword">elif</span> front_is_clear():
+        move()
+    <span class="keyword">else</span>:
+        turn_left()
+
+turn_off()
+</pre>
+
+<p>정상적으로 잘 동작합니까? 결정을 내리기 위해서 주의 깊게 읽어보세요. 여러분의 의견을 확인하기 위해 직접 시도해 보세요.</p>
+
+<div class="lessons_nav">
+<a href="17-amazing1.htm"><img alt="previous" src=
+"../images/previous.png" />놀라운 Part 1 </a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../images/home.png" /></a> - 
+<a href="19-amazing3.htm">놀라운 Part 3<img alt="next" src=
+"../images/next.png" /></a>
+</div>
+</body>
+</html>

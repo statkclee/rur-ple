@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+
+<title>리보그에게 덧셈 가르치기</title>
+</head>
+<body>
+<h2 class="title">24. 리보그에게 덧셈 가르치기</h2>
+
+<p>이번 학습에서, 리보그가 두 숫자를 더하는 프로그램을 작성하도록 여러분을 인도하겠습니다. 10진수로 일반적인 방식으로 덧셈을 하지만, 다른 진법의 숫자를 이 프로그램을 사용하여 쉽게 할 수 있습니다.</p>
+
+<!--=========================================-->
+<hr class="line" />
+
+<h3 class="try">워밍업</h3>
+
+<ol>
+<li>
+I.	다음 방식으로 리보그가 3+2로 더하기 하는 프로그램을 작성하세요.<br />
+<img alt="3+2" src="../images/intro/add3_2_start.png" /><img alt="lead to"
+src="../images/lead_to.png" /> <img alt="5" src=
+"../images/intro/add3_2_end.png" /><br />
+</li>
+<li>
+각 비퍼들은 숫자를 표현하는데, 리보그가 13+22를 다음 방식으로 더하도록 프로그램을 수정하세요<br />
+<img alt="13+22" src="../images/intro/add13_22_start.png" /><img alt=
+"lead to" src="../images/lead_to.png" /> <img alt="35" src=
+"../images/intro/add13_22_end.png" />
+</li>
+<li>
+여러분이 작성한 새로운 프로그램을 사용해서, 리보그가  3+2 더하기를  할 수 있는 것을 확인하세요.
+여러분이 작성한 프로그램을 사용하여, 리보그는 다음과 같이 8+4 더하기를 할 수 있을까요?<br />
+<img alt="8+4" src="../images/intro/add8_4_start.png" /><img alt=
+"lead to" src="../images/lead_to.png" /> <img alt="12" src=
+"../images/intro/add8_4_end.png" /><br />
+더하기를 수행하도록, 프로그램을 수정하는 방법을 생각해 낼 수 있습니까? 더 읽기 전에 스스로 프로그램을 만들어서 시도해 보세요.
+</li>
+</ol>
+
+<!--=========================================-->
+<hr class="line" />
+
+<h3 class="section">덧셈 검토</h3>
+
+<p>전통적인 방식으로 오른쪽에서부터 왼쪽으로 두 숫자를 더해봅시다.</p>
+
+<pre>
+  528
++ 634
+------
+   12  # 마지막 숫자 두 개를 더하기 (8+4)
+</pre>
+
+<p>단자리에서 십자리 이월 시킬 1을 가지고 있습니다. 이월은 여러분이 작성한 프로그램이 문제를 가질 소지가 가장 큰 곳입니다. 일반적인 방식으로 다시 프로그램을 다시 작성해서 계속 갑시다.</p>
+
+<pre>
+   1
+  528
++ 634
+------
+ 1162  
+</pre>
+
+<p>그럼, 조금 간략하지만, 여러분이 충분히 따라올 수 있다고 확신합니다. 리보그 월드에서, 덧셈을 아래 보이는 것처럼 보입니다.</p>
+
+<p><img alt="adding start" src="../images/intro/add_start.png" /><img alt=
+"lead to" src="../images/lead_to.png" /> <img alt="adding end" src=
+"../images/intro/add_end.png" /></p>
+
+<p>Let's tackle first the simpler problem of adding 8+4.</p>
+
+<!--=========================================-->
+<hr class="line" />
+
+<h3 class="section">3.	10진수 8+4 더하기</h3>
+
+<p>앞에서 언급했듯이, 각 비퍼들은 숫자를 나타내고 두 숫자를 더해서 합이  9보다 큰 경우 (십진수에서) 두 숫자를 더하기의  문제가 발생합니다. 두 숫자를 무엇을 더하든지 상관없이 이 마술 숫자 (10)을 기억할 필요가 있습니다. 월드 파일(파일: adding_world.wld)을 생성했는데 10진수 (혹은 29진수도 가능)로 7자리까지 충분히 더할 수 있는 큰 월드입니다. 월드 파일을 살펴보세요. 적절하게 덧셈을 할 수 있는 프로그램을 작성할 수 있도록 제가 여러분을 인도하여 드리겠습니다.</p>
+
+<p>월드 파일을 메모리에 올린 후에, 화면의 바닥을 살펴보면, 리보그가 8개 비퍼를 가지고 있는 것을 알 수 있습니다. 다음에 보여지듯이 리보그가 10번째 행에 비퍼를 쭉 내려 놓는 프로그램을 작성하세요.</p>
+
+<p><img alt="line of beepers accross 10th street" src=
+"../images/intro/accross10.png" /></p>
+
+<p>이제 좀더 진행하기 전에 이 프로그램을 저장하세요.<br />
+<br />
+월드 파일을 열어 다시 메모리에 올리고, 오른쪽 하단 모퉁이에 비퍼를 추가해서 다음과 같이 보이도록 하세요. 하지만 리보그는 처음 시작위치 (좌측 하단 첫 번째 위치)에 서 있습니다.</p>
+
+<p><img alt="8+4" src="../images/intro/add8_4_newstart.png" /></p>
+
+<p>리보그는 다음을 수행합니다.</p>
+
+<ol>
+<li>
+앞에서 수행했듯이, 10번째 행에 비퍼를 쭉 내려 놓습니다.
+</li>
+<li>
+화면의 바닥 오른쪽으로 가서, 두 개의 비퍼(각 8개, 4개)들을 줍습니다.
+</li>
+<li>
+아래 보여지듯이 12개 비퍼를 수직 열로 뿌려 놓습니다. (중요: 설명을 드리지 않은 carries_beepers() 명령문을 사용할 필요가 있을 것입니다. while carries_beepers(): … 처럼 시도해 보세요)
+</li>
+</ol>
+
+<p><img alt="8+4 spread vertically" src=
+"../images/intro/vertical12.png" /></p>
+
+<p>이제, 비퍼 수평선에는 두 개의 비퍼와 이월로 사용할 나머지 잉여 비퍼가 있습니다. 이제 여러분이 해야 할 것은 다음을 작성하는 것입니다.</p>
+
+<ol>
+<li>
+수평선 아래 9개 비퍼를 주워 버리는 것입니다. (아마도 수평선의 모든 비퍼를 주워서)
+</li>
+
+<li>
+아래 보여지듯이 리보그는 마지막 비퍼를 지나 계속 북쪽으로 이동합니다.
+<br />
+<img alt="8+4" src="../images/intro/add8_4_middle.png" />
+</li>
+
+<li>
+돌아서서 비퍼 하나를 줍고 이동하게 합니다. 이를 리보그가 더 이상 비퍼가 없는 모퉁이에 도달할 때까지 반복합니다. 이 지점에서 리보그는 비퍼 3개를 가지고 있어야 합니다.
+</li>
+<li>
+리보그가 벽에 도착할 때까지, 리보그는 이 비퍼를 가지고 다닙니다.
+wall;
+</li>
+<li>
+리보그가 모든 비퍼(3)를 내려 놓고, 하나(이월)를 집어서, 서쪽으로 이동하고, 이월 비퍼를 내려 놓습니다
+</li>
+</ol>
+
+<p>남은 마지막 일은 결과를 보여드리기 위해서 리보그를 길 밖으로 빼는 것입니다.</p>
+
+<p><img alt="8+4" src="../images/intro/add8_4_end.png" /></p>
+
+<p>사실… 이 5 단계는 상당히 많은 프로그램 코드를 필요로 하고, 제대로 작동하게 만들기가 꽤나 어렵습니다. 하지만, 체계적으로 한다면 하실 수 있습니다. 시도해 보세요!</p>
+
+<!--=========================================-->
+<hr class="line" />
+
+<h3 class="suggested">3+5 더하기</h3>
+
+<p>그래서, 종국에 8+4를 계산하는 프로그램을 만들었습니다. 훌륭합니다. 이제 3+5를 시도해 봅시다. 작동하나요? 작동이 되지 않죠… 이 연산은 이월을 필요하지 않습니다. 다시 돌아가서 프로그램을 수정해서 두 숫자를 더하는 연산 0+0에서 9+9까지 잘 돌아가도록 하세요.</p>
+
+<!--=========================================-->
+<hr class="line" />
+
+<h3 class="suggested">최종 도전</h3>
+
+<p>10진수에 말고 다른 진법의 숫자를 더한다는 의미를 알고 있다면 프로그램을 변경해서 다른 진법의 숫자를 더하는 프로그램을 작성해 보세요.</p>
+
+<!--=========================================-->
+<hr class="line" />
+
+<h3 class="section">다음은?</h3>
+
+<p>지금까지, 리보그 월드안에서, 파이썬 키워드 def, elif, else, if, not, pass, while를 살펴봤습니다. 다소 복잡한 프로그램을 작성해서, 리보그가 두 숫자를 더하는 것으로 마무리 했습니다. 이제 리보그 월드를 벗어나서 파이썬으로 좀더 쉽게 두 숫자를 더할 수 있는지 살펴봅시다. 리보그 월드로 돌아가기 전에 파이썬에 대해서 좀더 학습할 것입니다.</p>
+
+<div class="lessons_nav">
+<a href="23-trash.htm"><img alt="previous" src=
+"../images/previous.png" />폭풍이 지나간 후에</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../images/home.png" /></a> - <a href=
+"../lessons_toc.htm">처음으로 <img alt="next"
+src="../images/next.png" /></a>
+</div>
+</body>
+</html>

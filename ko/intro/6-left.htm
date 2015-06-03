@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+
+<title>Making a left turn</title>
+</head>
+<body>
+<h2 class="title">6. 왼쪽으로 돌기</h2>
+
+<p>앞에서 언급했듯이, 리보그는 왼쪽방향으로, 왼쪽방향의 90도로 어느 방향이든지 돌 수 있습니다. 리보그를 만든 이가 이보다 더 좋은 체계를 구현할 수 없어서 그렇습니다. 리보그가 왼쪽으로 돌게 하려면, turn_left() 라고 작성하면 됩니다.</tt>!</p>
+
+<p>예를 들어, 리보그가 처음 시작 위치에서 출발한다면, 아래 간단한 명령문은 다음 화면을 뿌려줍니다.</p>
+
+<pre>
+move()
+turn_left()
+move()
+turn_off()
+</pre>
+
+<p><img alt="simple left turn" src="../../images/intro/turn_left_end.png" /></p>
+
+<h3 class="try">여러분 차례</h3>
+
+<p>다음 프로그램을 사용하여 리보그로 하여금 간단한 사각형을 따라 움직이게 하세요.</p>
+
+<pre>
+move()
+turn_left()
+move()
+turn_left()
+move()
+turn_left()
+move()
+turn_left()
+turn_off()
+</pre>
+
+<p>필히, 프로그램을 실행하기 전에 작성한 프로그램을 저장하는 것을 잊지 마세요. </p>
+
+<p>영어가 모국어가 아니라면, 먼저 정의한 후에, 여러분의 모국어의 동의어를 만들어서 작성할 수 있습니다. 하지만, 동의어는 필히 영어 알파벳이어야 하고, 강세 등의 표식이 없어야 합니다. 예를 들어, 프랑스어로, vire_a_gauche = turn_left 정의하고, vire_a_gauche() 사용하여 로봇이 왼쪽으로 돌게 명령할 수 있습니다.</p>
+
+<h3 class="try">다시 여러분 차례</h3>
+
+<p>사각형을 따라서 반시계 방향으로 리보그가 움직이는 프로그램을 작성하세요. 앞으로 2칸 이동하고, 왼쪽으로 돌기를 반복하여 처음 시작위치로 돌아와서 아래와 같이 동쪽을 바라보는 모습으로 서 있어야 합니다.</p>
+
+<p><img alt="left square" src="../../images/intro/left_square2.png" /></p>
+
+<h3 class="suggested">실험!</h3>
+
+<p>리보그 월드에서 다양한 경로를 따라 리보그가 이동하는 다른 프로그램을 자유롭게 만들어 보세요.</p>
+
+<!--==================================================-->
+<hr class="line" />
+
+<a name="Home" id="Home"></a>
+<h3 class="section">집으로</h3>
+
+<p>리보그 월드에 들어갈 때, 리보그는 통상 왼쪽 아래 모퉁이에 서 있고 동쪽을 향해 있습니다.  오른쪽 끝쪽에 있는 “Show/Hide world file” 버튼 (<img alt="Show/Hide world file" src=
+"../../images/intro/btn_show_world_file.png" />)을 클릭하세요. 오른쪽 옆에 텍스트가 나타나며 화면에 변화를 볼 수 있습니다. 특히, robot = (1, 1, 'E', 0) 줄을 주목해서 보세요. 이 줄이 월드에서 리보그의 위치를 나타냅니다. 첫 번째 숫자는 세로 길(열)의 위치, 두 번째 숫자는 가로 길(행)의 위치, 인용부호 한의 문자는 리보그가 향하는 방향(E=East(동쪽), N=North(북쪽), W=West(서쪽), S=South(남쪽)), 동쪽은 오른쪽을 향하고, 북쪽은 위쪽을 향하고 등등입니다. 마지막 숫자 (0)는 리보그가 갖고 있는 비퍼(beeper) 숫자입니다. 비퍼에 대해서는 조금 후에 학습할 것입니다.
+</p>
+
+<p>앞에서 보았듯이, 컴퓨터 키보드의 방향키를 사용하여 리보그를 조종할 수 있습니다. 리보그가 키보드로 움직일 때는 어떤 흔적도 남기지 않습니다. 
+하지만, 리보그가 움직일 때, robot = (…) 괄호안의 텍스트가 월드에서 새로운 위치를 나타내기 위해 바뀌는 것을 알 수 있습니다.
+</p>
+
+<h3 class="try">여러분 차례</h3>
+
+<p>키보드를 사용하여 아래 그림과 같이 3번째 열, 4번째 열에 리보그가 남쪽을 향하도록 움직여보세요. 리보그가 처음의 위치로 돌아가는, 즉 첫 번째 열, 첫번째 행 동쪽을 향한 초기 상태의 리보그가 되도록 프로그램을 작성하세요. 아래 보인 것보다 더 적은 프로그램 단계가 걸리도록 프로그램을 작성하세요.</p>
+
+<p><img alt="back home start" src="../../images/intro/back_home_start.png" />
+<img alt="lead to" src="../../images/lead_to.png" /> <img alt="back home end"
+src="../../images/intro/back_home.png" /></p>
+
+<div class="lessons_nav">
+<a href="5-comments.htm"><img alt="previous" src=
+"../../images/previous.png" /> 주석(Comment) </a> - <a href="../lessons_toc.htm"><img alt="home" src=
+"../../images/home.png" /></a> - <a href="7-beepers.htm">비퍼(Beepers)  <img alt=
+"next" src="../../images/next.png" /></a>
+</div>
+</body>
+</html>

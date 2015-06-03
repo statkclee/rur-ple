@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+
+<title>놀라운 Part 3</title>
+</head>
+<body>
+<h2 class="title">19. 놀라운 Part 3</h2>
+
+<p>알아채셨겠지만, 프로그램은 작동을 하지 않습니다.  리보그 주변에 벽이 없는 상태에서 리보그가 무한 반복상태에 놓여지게 됩니다. 아래와 같이 오른쪽을 회전을 한 후에 리보그가 move() 명령문으로 한 칸 앞으로 이동해야 합니다.</p>
+
+<pre>
+<span class="keyword">def</span> turn_right():
+    repeat(turn_left, 3)
+
+put_beeper()
+move()
+<span class="keyword">while not</span> on_beeper():
+    <span class="keyword">if</span> right_is_clear():
+        turn_right()
+        move()
+    <span class="keyword">elif</span> front_is_clear():
+        move()
+    <span class="keyword">else</span>:
+        turn_left()
+
+turn_off()
+</pre>
+
+<!--================================================-->
+<hr class="line" />
+
+<h3 class="section">좀더 복잡한 월드</h3>
+
+<p>이제 아래 보여지는 월드를 생각해봅시다. 여러분이 작성한 프로그램이 동작할까요?</p>
+
+<p><img alt="around the world: start" src=
+"../images/intro/around3start.png" /></p>
+
+<p>불행하게도, 정답은 ‘아니오’ 입니다. 더 이상의 학습을 진행하기 전에 왜 그런지 알아봅시다.</p>
+
+<div class="lessons_nav">
+<a href="18-amazing2.htm"><img alt="previous" src=
+"../images/previous.png" /> 놀라운 Part 2</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../images/home.png" /></a> - <a href=
+"20-amazing4.htm">놀라운 Part 4 <img alt="next" src=
+"../images/next.png" /></a>
+</div>
+</body>
+</html>

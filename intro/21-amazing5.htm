@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+
+<title>놀라운 Part 5</title>
+</head>
+<body>
+<h2 class="title">21. 놀라운 Part 5</h2>
+
+<h3 class="section">좀더 복잡함</h3>
+
+<p>다음 월드를 생각해봅시다.</p>
+
+<p><img alt="around the world: start" src=
+"../images/intro/around4start.png" /></p>
+
+<p>앞서 작성한 프로그램이 작동합니까? 시도해 보세요.</p>
+
+<p>아마도 생각하듯이, 이 프로그램은 작동하지 않습니다. 정상적으로 작동시키기 위해서, 방금 전에 추가한 while 명령문을 if 명령문으로 바꿀 필요가 있습니다. 시도해 보세요! 저장하는 것을 확인하세요.</p>
+
+<!--=====================================-->
+<hr class="line" />
+
+<h3 class="section">의도를 명확히 하기</h3>
+
+<p>리보그가 마주칠 것 같은 거의 모든 상황에서 작동하는 프로그램을 작성한 듯 보입니다. 이 프로그램은 리보그가 벽을 따라 월드를 한번 탐색하도록 작성되었습니다. 프로그램이 다소 짧고 구조가 깔끔하게 보일 수 있지만, 처음으로 프로그램을 읽는 사람에게는 명확하게 보이지 않을 수 있습니다. 주석을 추가하든지 좀더 의미가 있는 단어를 사용하는 것이 좋은 생각입니다. 생각하는 것 보다 다소 단어나 말이 길어지는 것처럼 보일 수 있지만, 주석을 추가해 봅시다.</p>
+
+<pre>
+<span class="comment"># 유용한 명령문 함수를 정의합니다. /span>
+<span class="keyword">def</span> turn_right():
+    repeat(turn_left, 3)
+
+<span class=
+"comment"># 비퍼를 내려놓아서 시작 지점을 표시합니다.</span>
+put_beeper()
+
+<span class=
+"comment"># 그리고 나서, 나아갈 방향을 찾고, 앞으로 움직여 갑니다.</span>
+<span class="keyword">while not</span> front_is_clear():
+    turn_left()
+move()
+
+<span class="comment"># 비퍼를 내려 놓은 장소로 돌아왔을 때,</span>
+<span class="comment"># 월드를 벽을 따라 한 바퀴 돈 것을 알 수 있습니다.</span>
+
+<span class="keyword">while not</span> on_beeper():
+    <span class="keyword">if</span> right_is_clear(): <span class=
+"comment"># keep to the right</span>
+        turn_right()
+        move()
+    <span class="keyword">elif</span> front_is_clear(): <span class=
+"comment"># 오른쪽 벽을 따라 움직입니다</span>
+        move()
+    <span class="keyword">else</span>: <span class=
+"comment"> # 왼쪽 벽을 따라 움직입니다.</span>
+        turn_left()
+
+turn_off()
+</pre>
+
+<p>이 방법이 각 명령문에 대한 의도를 명확히 하지만, 문제를 해결하는데 사용되는 알고리즘(Algorithm)으로 알려진 방법을 요약하는 데는 그다지 도움이 되지 않습니다. 따라서, 이렇게 주석을 다는 것은 여러분이 희망하는 다른 프로그램을 읽는 분들에게는 도움이 되지 않을지도 모릅니다. 주석을 읽으면, 작성된 프로그램이 두 개의 부분으로 구성된 것을 주목바랍니다.</p>
+
+<ol>
+<li>첫 시작 지점을 표시합니다.</li>
+<li>처음 시작 지점으로 돌아올 때까지 오른쪽 벽을 따라 계속 이동합니다.</li>
+</ol>
+
+<p>프로그램을 다시 작성해서, 두 부분이 좀더 명확해 지도록 주석을 다르게 작성합시다.</p>
+
+<pre>
+<span class=
+"comment"># 이 프로그램은 리보그가 반시계 방향으로 벽을 따라 돌아</span>
+<span class="comment"># c처음 시작한 지점으로 다시 돌아와서 멈추는 프로그램입니다.  </span>
+
+<span class="keyword">def</span> turn_right():
+    repeat(turn_left, 3)
+
+<span class="keyword">def</span> mark_starting_point_and_move():
+    put_beeper()
+    <span class="keyword">while not</span> front_is_clear():
+        turn_left()
+    move()
+
+<span class="keyword">def</span> follow_right_wall():
+    <span class="keyword">if</span> right_is_clear(): 
+        turn_right()
+        move()
+    <span class="keyword">elif</span> front_is_clear(): 
+        move()
+    <span class="keyword">else</span>: 
+        turn_left()
+
+found_starting_point = next_to_a_beeper   <span class=
+"comment"># 비퍼가 초기 시작지점을 표시합니다</span>
+
+<span class="comment">#=== 함수 명령문 정의 끝, 솔루션(해법) 시작</span>
+
+mark_starting_point_and_move()
+            
+<span class="keyword">while not</span> found_starting_point(): 
+    follow_right_wall()
+      
+turn_off()
+</pre>
+
+<p>이것이 좀더 명확하지 않습니까? 이번에는 각 모퉁이의 시작 지점에 비퍼가 있다고 가정합시다. 그 다음, 비퍼를 제거하는 것을 통해서 시작 지점을 선택할 수 있습니다. 함수 명령문 정의 부분을 약간 수정할 필요가 있지만, 솔루션(해법) 부분을 수정할 필요는 없습니다.</p>
+
+<!--======================================-->
+<hr class="line" />
+
+<h3 class="try">첫 번째 기적</h3>
+
+<p>방금 전에 작성한 프로그램을 다음 장애물 경주 (파일: hurdles3.wld)에 저장하여 실행하여 보세요. </p>
+
+<p><img alt="hurdles" src="../images/intro/hurdles3_start.png" /></p>
+
+<p>기적! 특이한 방향으로 결승선을 통과하고 결승선에서 우승한 후에 관람객에게 인사하는  것을 제외하고, 방금 전에 작성한 프로그램은 장애물 경주 문제도 해결할 수 있습니다. 이 프로그램은 아래 그림의 울퉁불퉁한 장애물 경주(파일: hurdles3.wld) 에도 작동합니다. 장애물을 넘기 위해서 전에 작성한 프로그램은 해결할 수 없었던 것입니다.</p>
+
+<p><img alt="hurdles" src="../images/intro/hurdles4_start.png" /></p>
+
+<!--======================================-->
+<hr class="line" />
+
+<h3 class="try">놀라운 기적</h3>
+
+<p>앞에서 소개한 아래 보여지는 미로 문제에 동일한 프로그램을 실행하여 봅시다. (월드파일: maze1.wld)</p>
+
+<p><img alt="maze" src="../images/intro/maze1_start.png" /></p>
+
+<p>실행해 보면, 여러분이 작성한 간단한 프로그램은 미로도 탈출할 수 있습니다. 놀랍죠! 다시 한번, 여러분이 작성한 프로그램은 불필요한 명령문 함수가 포함되어 있음을 주목하세요.</p>
+
+<!--======================================-->
+<hr class="line" />
+
+<h3 class="section">결론</h3>
+
+<p>사각형 월드의 벽을 따라 움직이는 간단한 문제를 해결하는 것에서 시작해서 조금씩 조금씩 프로그램을 향상시키는 점진적 상세화(stepwise refinement)를 통해서 많은 연관되지 않을 것 같은 문제를 해결하는데 사용할 수 있는 프로그램을 작성했습니다. 매 단계마다 수정사항을 최소화하고, 좀더 복잡한 문제를 고려하기 전에 제대로 작동하는 솔루션 프로그램을 개발했습니다. 또한, 서술적인 이름을 알고리즘의 부분에 부여해서 읽기 쉽고, 이해하기 좋은 프로그램을 작성했습니다. 이것이 여러분이 자신만의 프로그램을 작성할 때 사용할 전략입니다.</p>
+
+<dl>
+<dt><b>Rule # 5</b></dt>
+<dd>Steps to follow when writing a program:</dd>
+</dl>
+
+<ol>
+<li>간단하고, 작게 시작합니다</li>
+<li>한번에 작은 수정사항, 변경을 합니다.</li>
+<li>각 단계의 수정 변경 사항이 전에 작성한 것과 잘 작동하는지 확인하세요.</li>
+<li>각 명령문이 수행하는 것을 단순 반복하지 않는 적절한 주석을 추가하세요.</li>
+<li>서술적인 이름을 사용하세요.</li>
+</ol>
+
+<div class="lessons_nav">
+<a href="20-amazing4.htm"><img alt="previous" src=
+"../images/previous.png" />놀라운 Part 4 </a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../images/home.png" /></a> - <a href=
+"22-rain.htm">비가 와요  <img alt="next" src=
+"../images/next.png" /></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+
+<title>이놈의 버그! </title>
+</head>
+<body>
+<h2 class="title">8. 이놈의 버그!  <img alt="darn bugs" src=
+"../images/intro/b_shake.gif" /></h2>
+
+<p>누구도 컴퓨터 버그에 관해서 얘기하는 것을 좋아하지 않아요. 그래서 이번 학습은 매우 짧습니다. 제가 여러분께 부탁 드리는 것은 단지 읽어만 보세요. 여러분이 버그있는 프로그램을 작성하지는 않습니다.</p>
+
+<h3 class="section">1.	버그(Bug)란 무엇인가?</h3>
+
+<p>컴퓨터 용어 버그(Bug)의 어원은 하버드 대학 마크 II 컴퓨터 내부에서 나방이 발견된 실제 사건에 기원하는데, 분명히 나방이 컴퓨터가 멈추게 하는 원인을 제공했습니다. 컴퓨터 프로그래밍의 컴파일러 언어 개념을 발명한 저명한 컴퓨터 과학자이자 수학자이며 해군 장교인 Grace Murray Hopper 가 이끄는 팀에서 발견되었습니다. Grace Hopper 박사는 종국에는 미 해국 소장까지 진급했습니다.</p>
+
+<p>이 나방(Moth)은 하퍼의 기록지에 테이프되어 보관되었다. 흥미롭게도 기록지에는 다음과 같은 메모가 적혀있습니다. “버그가 발견된 첫 실제 사례(First actual case of bug being found.)”</p>
+
+<p><img alt="first bug" src="../images/intro/first_bug.jpg" /></p>
+
+<h6>Picture adapted from the public archive of the 
+<a href="http://www.history.navy.mil/photos/pers-us/uspers-h/g-hoppr.htm">
+U.S. Naval Historical Center</a></h6>
+
+<p>사실, 기술적인 맥락에서 버그라는 단어는 옥스퍼드 영어 사전에는 토마스 에디슨에 기인한다고 적혀있습니다. 옥스퍼드 영어 사전에 따르면, 1889년 3월 11일 Pall Mall Gazette 판에는 다음과 같은 텍스트가 적혀있습니다.</p>
+
+<blockquote><cite>제가 듣기로는 에디슨씨가 측음기에 ‘버그’가 발견되어 두 밤을 샜습니다. 버그는 풀기 어려운 문제를 해결하는 표현으로 어떤 가상의 벌레가 은밀하게 내부로 들어가서 모든 문제를 일으키는 것입니다.</cite></blockquote>
+
+<p>원 “버그”는 실제로 벌레일지 모르지만, 사실 가상으로 보입니다. 불행하게도, 컴퓨터 버그는 가상이지는 않습니다.</p>
+
+<h3 class="section">2.	버그 다루기</h3>
+
+<p>컴퓨터 전문용어인 버그는 프로그램이 예기치 않은 방식으로 작동하는 오류입니다. 컴퓨터 프로그램을 작성한다면, 모든 사람이 그렇듯이 조만간 버그를 가질 것입니다. 좋은 프로그래머는 버그를 제거하고, 프로그램이 예기치 않게 작동한다는 것을 알자마자 프로그램을 수정합니다.</p>
+
+<p>러플(RUR-PLE)은 버그를 잘 찾도록 설계되었습니다.</p>
+
+<ol>
+<li>
+로봇의 기름이 누출되어 흔적을 남기는데 로봇에 의해 수행된 명령문을 추적하여 작성된 프로그램을 확인할 수 있습니다.<br />
+<br /><img alt="simple left turn" src="../images/intro/turn_left_end.png" />
+</li>
+<li>
+각 명령문 (예로, ‘pick_beeper()’ 처럼) 은 로봇에 의해서 수행될 때 프로그램 윈도우에서 눈에 띄게 됩니다.<br />
+<br /><img alt="highlighted instruction" src="../images/intro/highlight.png" />
+</li>
+<li>
+프로그램이 실행될 때, 정지 버튼(<img alt="pause button" src="../images/intro/btn_pause.png" /> )을 클릭하여 프로그램을 정지시킬 수 있습니다. 컴퓨터 프로그램에서 “정지점(breakpoint)”를 설정하는 것과 유사합니다.
+</li>
+<li>
+명령실행 그리고 멈추거나 단계별로 실행버튼(<img alt="step button" src=
+"../images/intro/btn_step.png" />) 을 클릭하여 명령어를 하나 실행하고 멈추고(Step Through)를 통해 한 스텝씩 프로그램을 수행할 수 있습니다.
+</li>
+<li>
+오래 실행되는 프로그램에 대해서는 스피드 버튼( <img alt="speed button" src=
+"../images/intro/btn_speed.png" />)을 클릭하여 빨리 실행시킬 수 있습니다. 빨리 프로그램을 실행하고, 예기치 못한 행동을 보이는 부문(‘버그’)에서는 잠시 멈추고, 한번에 한 명령어 실행을 통해서 자세히 들여다 봅니다.
+</li>
+<li>
+프로그램을 시작한 후에, 끝까지 가기 전에 프로그램을 멈추고 싶다면 빨간색 정지 버튼(<img alt="stop button" src=
+"../images/intro/btn_stop.png" />)을 클릭하여 프로그램을 어느 때고 정지시킵니다.
+</li>
+<li>
+화면 하단에 상태표시 막대가 있습니다. 1) 어느 프로그램이 로드되어 있는지, 2) 그 프로그램의 상태는 어떤지, 3) 로봇이 주머니에 가지고 있는 비퍼의 숫자는 얼마인지, 4) 어떤 월드 파일이 로드되어 있는지, 1) ~ 4)를 상태 표시 막대는 표시합니다.<br />
+<img alt="status bar" src="../images/intro/en_status_bar.png" />
+</li>
+<li>
+처음 월드파일을 열어, 로봇이 처음 시작 지점으로 위치하도록 재시작 하고자 한다면, 월드 리셋  버튼 ( <img alt="reset button" src="../images/intro/btn_reset_world.png" />)을 클릭합니다. (이부분에 대해서은 아직 자세하게 설명하지 않았습니다.)
+</li>
+</ol>
+
+<p>지금 충분한 것보다 많을 수 있습니다. 나중에 버그를 찾고, 고치는 다른 요령을 보여줄 것입니다.</p>
+
+<div class="lessons_nav">
+<a href="7-beepers.htm"><img alt="previous" src=
+"../images/previous.png" />비퍼(Beepers) </a> -
+<a href="../lessons_toc.htm"><img alt="home" src=
+"../images/home.png" /></a> - <a href="9-walls.htm">벽 만들기 <img alt="next" src=
+"../images/next.png" /></a>
+</div>
+</body>
+</html>

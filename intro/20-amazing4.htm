@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+
+<title>놀라운 Part  4</title>
+</head>
+<body>
+<h2 class="title">20. 놀라운 Part 4</h2>
+
+<p>여러분 대부분 알아내셨듯이, 비퍼를 내려 놓은 후에 너무나도 서둘러서 리보그에게 앞으로 전진하게 명령을 한 것입니다. 앞으로 움직이기 전에 벽이 있는지를 확인하는 단계가 필요합니다. 여기 해답이 있습니다.</p>
+
+<pre>
+<span class="keyword">def</span> turn_right():
+    repeat(turn_left, 3)
+
+put_beeper()
+<span class="comment"># begin changes</span>
+<span class="keyword">if not</span> front_is_clear():
+    turn_left()
+<span class="comment"># end changes</span>
+move()
+<span class="keyword">while not</span> on_beeper():
+    <span class="keyword">if</span> right_is_clear():
+        turn_right()
+        move()
+    <span class="keyword">elif</span> front_is_clear():
+        move()
+    <span class="keyword">else</span>:
+        turn_left()
+
+turn_off()
+</pre>
+
+<p>지금 당장 테스트해보고 정상적으로 작동하는지 확인하세요. 이 프로그램이 동작할 것 같지 않는 상황을 상상할 수 있나요?</p>
+
+<div class="lessons_nav">
+<a href="19-amazing3.htm"><img alt="previous" src=
+"../images/previous.png" /> 놀라운 Part 3</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../images/home.png" /></a> - <a href=
+"21-amazing5.htm">놀라운 Part 5 <img alt="next" src=
+"../images/next.png" /></a>
+</div>
+</body>
+</html>

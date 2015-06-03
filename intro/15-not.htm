@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../rurple.css" type="text/css" />
+
+<title>참이 아닙니까?</title>
+</head>
+<body>
+<h2 class="title">15. 참이 아닙니까?</h2>
+
+<p>비퍼를 발견하고 꺼질 때까지 리보그가 계속 이동하길 원한다고 가정합시다. 출발 위치에서 사례는 아래와 같습니다.</p>
+
+<p><img alt="stop at beeper" src="../images/intro/stop_at_beeper.png" /></p>
+
+<p>의사 코드(pseudo code)로 작업을 수행하는 방법은 다음과 같을 것입니다.:</p>
+
+<pre>
+If on beeper,
+... stop;
+otherwise,
+... keep moving.
+</pre>
+
+<p>지금까지 공부한 것을 사용해서, 의사 코드를 아래처럼 번역할 수 있습니다.</p>
+
+<pre>
+<span class="keyword">if</span> on_beeper():
+    turn_off()
+<span class="keyword">else</span>:
+    move()           
+</pre>
+
+<p>아직, 리보그에게 반복해서 진행하라고 명령하지 않아서 단지 프로그램의 일부입니다. 잠시 이것은 무시합시다. 대신에 이것에 상응하는 다른 의사 코드를 생각해 봅시다.</p>
+
+<pre>
+If not on beeper,
+...keep moving;
+otherwise,
+...stop.
+</pre>
+
+<p>keep moving과 stop의 순설르 바꾸었지만, 여러분은 두 가지 방식이 동일하다는 것에 동의하실 것입니다. 핵심 내용은 두 번째 경우에 if 문 뒤에 부정 “not”키워드의 사용입니다. 파이썬은 아래와 같이 테스트에서 부정을 사용할 수 있습니다.</p>
+
+<pre>
+<span class="keyword">if not</span> on_beeper():
+    move()
+<span class="keyword">else</span>:
+    turn_off()          
+</pre>
+
+<p>지금까지 여러분이 배운 것을 사용해서, 완전한 프로그램으로 바꿔봅시다. def 함수 명령문을 사용해서 명령문을 정의하고, 리보그가 작업을 완수할 수 있을 만큼 충분히 반복해야 합니다.</p>
+
+<h3 class="try">여러분 차례</h3>
+
+<p>신규 파이썬 키워드 not를 사용해서 장애물 넘기 프로그램을 다시 작성하세요.</p>
+
+<!--=============================================-->
+<hr class="line" />
+
+<h3 class="suggested">김을 매고 씨 뿌리는 시기</h3>
+
+<p>봄이 왔습니다. 리보그의 아버지는 가을 추수를 위해서 정원에 씨앗을 심었습니다. 몇몇 곳에서 씨앗 두 개가 발아를 했고, 다른 곳에서는 발아를 하지 않았습니다. 전형적인 상황은 아래 보여지고 있습니다. (파일: harvest4.wld)</p>
+
+<p><img alt="weeding" src="../images/intro/harvest4.png" /></p>
+
+<p>리보그가 정원에서 김을 매는 것을 도와주세요. 두 개의 당근(비퍼)이 있는 곳이 있거나, 당근이 하나도 없는 곳이 있으면 안 됩니다. 최종 상황은 아래와 같아야 합니다.</p>
+
+<p><img alt="weeding" src="../images/intro/harvest1.png" /></p>
+
+<p>여기에 코드의 일부분에 사용될 수 있는 제안이 있습니다.</p>
+
+<pre>
+<span class="comment"># 문제에 관련 어휘를 연결시키기</span>
+next_to_a_carrot = on_beeper
+plant_carrot = put_beeper
+pick_carrot = pick_beeper
+
+<span class="keyword">def</span> one_carrot_only():
+    <span class="keyword">if not</span> next_to_a_carrot():
+        plant_carrot()      <span class=
+"comment"># 씨앗이 없는 것을 대체하기</span>
+    <span class="keyword">else</span>:
+        pick_carrot()
+        <span class="keyword">if not</span> next_to_a_carrot(): <span class="comment"># 이런(oops!)</span>
+            plant_carrot()  <span class="comment"># 단지 하나만 제거해야 합니다.</span>
+</pre>
+
+<p>현실에서 모든 씨앗을 제거하고 당장 다시 심는 것은 좋은 생각이 아닙니다.</p>
+
+<div class="lessons_nav">
+<a href="14-elif.htm"><img alt="previous" src=
+"../images/previous.png" /> If, else, if, else, ....</a> - <a href=
+"../lessons_toc.htm"><img alt="home" src="../images/home.png" /></a> - <a href=
+"16-while.htm">while 문 <img alt="next" src=
+"../images/next.png" /></a>
+</div>
+</body>
+</html>
